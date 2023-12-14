@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Final Project PLSCS2200</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+ @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+
+ /* Side Navigation CSS */
+ .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #930a00;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  font-family: 'Space Grotesk';
+  font-weight: bold;
+  color:white;
+  
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #ffffff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #5b0505;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* Responsive Image Styling */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Styling for large display text "The Result?" */
+#bigtext {
+  font-size: 3vw;
+  font-weight: bold;
+  margin-right: 4vw;
+}
+
+/* Animated line divider */
+.lineanimate {
+  height:0px;
+  width:7px;
+  border-bottom:10px solid #941212;
+  
+  -webkit-animation: increase 3s;
+  -moz-animation:    increase 3s; 
+  -o-animation:      increase 3s; 
+  animation:         increase 3s; 
+  animation-fill-mode: forwards;
+}
+
+@keyframes increase {
+    100% {
+        width: 100vw;
+    }
+
+}
+
+.btn-group {
+  background-color: #0e0c0c;
+  border: 3px solid white; /* white border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+  /* margin-right: 5vw; */
+  border-radius: 5px;
+  font-family: 'Space Grotesk';
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group:hover {
+  color: #941212;
+  border: 3px solid #941212;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 20vw; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #941212;
+  margin: auto;
+  padding: 20px;
+  width: 80%;
+  color: white;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body onload="openModal()" style="background-color: #0e0c0c; margin: 0px">
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="GISFinalProject.html">Homepage</a>
+    <a href="GISAnalysisPage.html">GIS Analysis</a>
+    <a href="GISAcknowledgements.html">Acknowledgements</a>
+  </div>
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p style="font-family: 'Space Grotesk';">This project was made possible by Zoe Ponterio and SPIF! I'd like to thank Zoe for all her help in finding usable datasets and teaching me her tips and tricks for working with other planets on GIS!</p>
+    </div>
+  </div>
+
+  <div id="main">
+    <div style="position: relative;">
+      <img src="coverimage.png"></img>
+      <span style="font-size:30px;cursor:pointer;color:white; position: absolute; top: 10px; left: 15px;" onclick="openNav()">&#9776;</span>
+    </div>
+    
+    
+<h1 style="font-family: 'Space Grotesk'; color:white; font-size: 2vw; text-align: center; margin-top: 10vw; margin-bottom: 10vw;">
+    This project aimed to locate potential areas where life could be found on Mars using ArcGIS
+</h1>
+
+<div class="lineanimate"></div>
+<div style="font-family: 'Space Grotesk'; color:white; font-size: 1.7vw; text-align: center; margin: 2vw;">
+  <table style="border-spacing: 2.5vw;">
+    <tr>
+      <td id="bigtext">The Result?</td>
+      <td><p>I ended up with the map below.
+        The map shows Jezero Crater, a smaller area of Mars in the Syrtis Major region drawn 
+        with a reddish hillshade to more accurately convey the Martian surface. The blue and 
+        purple shaded regions show potential hotspots for life based on a site suitability analysis
+         I conducted. The blue area represents the most suitable site while the purple illustrates the
+          second most suitable location.</p></td>
+    </tr>
+  </table>
+
+        <figure>
+          <a href="FinalProjectLayout.jpg" target=" _blank"><img style="width:50%" src="FinalProjectLayout.jpg"></a>
+          <figcaption>Click the image to view it in a separate window (suggested)</figcaption>
+        </figure>
+</div>
+
+<img src="steps.png"</img>
+
+<p style="font-family: 'Space Grotesk'; color: white; font-size: 2vw; font-weight: bold; text-align:center;">Want to know more? Check these out!</p>
+<br>
+
+<table style="margin-left: auto; margin-right: auto; border-spacing: 7vw 0px;">
+  <tr>
+      <td>
+        <a href="GISAnalysisPage.html">
+          <button class="btn-group">GIS Analysis Details</button>
+        </a>
+      </td>
+      <td>
+        <a href="GISAcknowledgements.html">
+          <button class="btn-group">Acknowledgements</button>
+        </a>
+      </td>
+      <td>
+        <a href="https://cugis.maps.arcgis.com/home/webscene/viewer.html?webscene=7f142c2cac4641efac2554c55f4796ec">
+          <button class="btn-group">3D Mars Visualization</button>
+        </a>
+      </td>
+    </div>
+  </tr>
+ 
+</table>
+
+
+</div>
+
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("main").style.filter = "blur(4px)";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.getElementById("main").style.filter = "blur(0px)";
+  }
+  
+  // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+//var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+function openModal() {
+  var popupDisplayed = localStorage.getItem("popupDisplayed");
+  if( popupDisplayed !== "true" ) {
+   modal.style.display = "block";
+  }
+  localStorage.setItem("popupDisplayed", "true" );
+
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+  </script>
+</body>
+</html>
